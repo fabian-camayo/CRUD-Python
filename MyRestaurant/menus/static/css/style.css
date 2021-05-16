@@ -1,0 +1,14 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.txt_negrita {
+	font-weight: bold!important;
+}
+
+body > main > div > div.row.mb-5 > div.col-md-10 > div > div > form > div:nth-child(5) > a {
+	display: none!important;
+}
+
+.ocultar {
+	display: none!important;
+}

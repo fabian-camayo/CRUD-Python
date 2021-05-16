@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" type="text/css" href="static/css/estilos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <title>Actualizar Menu</title>
+
+    {# Cargamos la librería #}
+    {% load bootstrap4 %}
+ 
+    {# CSS Bootstrap #}
+    {% bootstrap_css %} 
+
+	  {# Widget Tweaks #}
+    {% load widget_tweaks %}
+
+    {# Archivos #}
+    {% load static %}
+</head>
+<body>
+
+<main role="main">
+
+    <div class="container text-center mt-5">
+
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <h1 style="font-size: 28px;">CRUD - Django 1.11.11 - Bootstrap 4 - Python 3.6.9</h1>              
+        </div>
+      </div>          
+
+      <div class="row mb-5">
+
+        <div class="col-md-12">
+
+          <div class="table-responsive">
+
+            <nav aria-label="breadcrumb mb-3">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="../">Menus</a></li>
+                  <li class="breadcrumb-item"><a href="#">Actualizar</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{object.name}}</a></li>
+              </ol>
+            </nav>
+
+            <div class="formulario" align="left">
+
+              <h4 class="text-center">Actualizar</h4>
+
+              <form method="post" enctype="multipart/form-data" class="ml-5 mr-5">
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                <div class="form-group">
+                  <label for="name" class="txt_negrita">Nombre</label>
+                  {{ form.name|add_class:"form-control" }} 
+                </div>
+                <div class="form-group">
+                  <label for="price" class="txt_negrita">Precio</label>
+                    {{ form.price|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="stock" class="txt_negrita">Stock</label>
+                  {{ form.stock|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="img" class="txt_negrita">Imagen</label>
+                  {{ form.img|add_class:"form-control mb-3" }}
+                  <p class="txt_negrita">Imagen Actual:</p>
+                  <img src="{% static 'uploads/'%}{{object.img}}" class="img-fluid" alt="{{object.name}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <a href="../" type="submit" class="btn btn-primary">Volver</a>
+              </form>
+            </div>           
+          </div>
+        </div>
+      </div>
+</main>   
+
+    {# JS y jQuery Bootstrap #}
+    {% bootstrap_javascript jquery='full' %}
+    
+</body>
+</html>
